@@ -1,0 +1,83 @@
+{
+  "info": {
+    "name": "Multivendor API",
+    "_postman_id": "multivendor-collection",
+    "description": "Basic API collection for multivendor backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth - Register",
+      "request": {
+        "method": "POST",
+        "header": [{"key":"Content-Type","value":"application/json"}],
+        "body": {"mode":"raw","raw":"{ \"name\": \"Admin\", \"email\": \"admin@example.com\", \"password\": \"admin123\" }"},
+        "url": {"raw":"{{baseUrl}}/api/auth/register","host":["{{baseUrl}}"],"path":["api","auth","register"]}
+      }
+    },
+    {
+      "name": "Auth - Login",
+      "request": {
+        "method": "POST",
+        "header": [{"key":"Content-Type","value":"application/json"}],
+        "body": {"mode":"raw","raw":"{ \"email\": \"admin@example.com\", \"password\": \"admin123\" }"},
+        "url": {"raw":"{{baseUrl}}/api/auth/login","host":["{{baseUrl}}"],"path":["api","auth","login"]}
+      }
+    },
+    {
+      "name": "Get Vendors",
+      "request": { "method": "GET", "url": {"raw":"{{baseUrl}}/api/vendors","host":["{{baseUrl}}"],"path":["api","vendors"]} }
+    },
+    {
+      "name": "Create Vendor",
+      "request": {
+        "method": "POST",
+        "header": [{"key":"Content-Type","value":"application/json"}],
+        "body": {"mode":"raw","raw":"{ \"name\": \"Demo Vendor\" }"},
+        "url": {"raw":"{{baseUrl}}/api/vendors","host":["{{baseUrl}}"],"path":["api","vendors"]}
+      }
+    },
+    {
+      "name": "Get Categories",
+      "request": { "method": "GET", "url": {"raw":"{{baseUrl}}/api/categories","host":["{{baseUrl}}"],"path":["api","categories"]} }
+    },
+    {
+      "name": "Create Category",
+      "request": {
+        "method": "POST",
+        "header": [{"key":"Content-Type","value":"application/json"}],
+        "body": {"mode":"raw","raw":"{ \"name\": \"Electronics\" }"},
+        "url": {"raw":"{{baseUrl}}/api/categories","host":["{{baseUrl}}"],"path":["api","categories"]}
+      }
+    },
+    {
+      "name": "Get Subcategories",
+      "request": { "method": "GET", "url": {"raw":"{{baseUrl}}/api/subcategories","host":["{{baseUrl}}"],"path":["api","subcategories"]} }
+    },
+    {
+      "name": "Create Subcategory",
+      "request": {
+        "method": "POST",
+        "header": [{"key":"Content-Type","value":"application/json"}],
+        "body": {"mode":"raw","raw":"{ \"name\": \"Mobiles\", \"category\": \"<categoryId>\" }"},
+        "url": {"raw":"{{baseUrl}}/api/subcategories","host":["{{baseUrl}}"],"path":["api","subcategories"]}
+      }
+    },
+    {
+      "name": "Get Products",
+      "request": { "method": "GET", "url": {"raw":"{{baseUrl}}/api/products","host":["{{baseUrl}}"],"path":["api","products"]} }
+    },
+    {
+      "name": "Create Product",
+      "request": {
+        "method": "POST",
+        "header": [{"key":"Content-Type","value":"application/json"}],
+        "body": {"mode":"raw","raw":"{ \"name\": \"Demo Phone\", \"price\": 199, \"vendor\": \"<vendorId>\", \"category\": \"<categoryId>\", \"subcategory\": \"<subId>\", \"description\": \"Nice\" }"},
+        "url": {"raw":"{{baseUrl}}/api/products","host":["{{baseUrl}}"],"path":["api","products"]}
+      }
+    }
+  ],
+  "variable": [
+    {"key":"baseUrl","value":"http://localhost:5000"}
+  ]
+}
